@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Inventory Manager</title>
+  <meta charset="utf-8">
+   <link rel="shortcut icon" type="image/x-icon" href="https://cdn3.iconfinder.com/data/icons/pictofoundry-pro-vector-set/512/BarCode-512.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" type="text/css" href="nav_style.css">
+  <link rel="stylesheet" type="text/css" href="_style.css">
+  </head>
+<body>
+<div id="user"><b>Welcome Back:</b> Braden Borman</div>
+<nav>
+ <ul>
+    <li><a href=""><i class="fas fa-home"></i> Home</a></li>
+	<li><a href=""><i class="fas fa-warehouse"></i> Inventory</a></li>
+    <li><a href=""><i class="fas fa-barcode"></i> UPC Search</a></li>
+    <li><a href=""><i class="fas fa-tools"></i> Item manager</a></li>
+  </ul> 
+</nav>
+
+<div class="container app">
+	<div class="row">
+			<div class="col-md-4 col-sm-7">
+						<div class="input-group mb-3">
+						  <div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-barcode"></i></span>
+						  </div>
+						  <input type="text" class="form-control" placeholder="Barcode Search" id="barcodeINPUT">
+						</div>
+			</div>
+			<div class="col-lg-2 col-sm-4">
+							<button onclick="searchViaInput()" type="button" class="btn btn-primary btn-block">Search</button>
+			</div>
+	</div>	
+</div>
+
+<div class="container">
+
+<div class="row">
+	<div class="col-sm-8">
+		<div class="featured_Item">
+		
+		<img id="item_img" src="https://target.scene7.com/is/image/Target/GUEST_0f5b151c-6b57-4aec-83e2-d4f378db67ce?wid=488&hei=488&fmt=pjpeg" class="float-left">
+		
+			<div class="itemFeautues">
+					<h2>Scrubbing Bubbles</h2>
+					<hr />
+					<p><b>Price: </b><span>$6.99</span></p>
+					<p class="minorDetail"><b>Prev Order Date: </b><span>Mon Feb 25 2019</span></p>
+					<p class="minorDetail"><b>Provider: </b><span>Amazon</span></p>
+			</div>
+		
+		
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="Stock_details">
+			<ul class="list-group">
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+				On Hand
+				<span class="badge badge-danger">0</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+				Capacity
+				<span class="badge badge-primary">5</span>
+			  </li>
+			   <li class="list-group-item d-flex justify-content-between align-items-center">
+					<a onclick="showModal()" class="btn btn-secondary btn-block">Buy More</a>
+			  </li>
+			</ul>						
+		</div>
+	
+	</div>
+	
+</div>
+
+
+
+
+<div class="overlay">
+	<div class="submit_buy_modal">
+		<div class="row">
+			<div class="col-sm-12">
+			<h2>Purchase Tracker</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+			<p>How many did you buy?</p>
+			</div>
+		</div>
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+		<div class="row">
+			<div class="col-sm-5"></div>
+			<div class="col-sm-2">
+				<button onclick="CloseModal()" type="button" class="btn btn-primary btn-block">Close</button>
+			</div>
+			<div class="col-sm-5"></div>
+		</div>
+	</div>
+</div>
+
+
+
+<script src="javascript/barcode.js"></script>
+<script src="javascript/search.js"></script>
+</body>
+</html>

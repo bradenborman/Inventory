@@ -1,0 +1,102 @@
+body {
+	background: #94b6c2;
+}
+
+body, html{
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.app {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+
+.featured_Item {
+	display: none;
+	background-color: white;
+	width: 100%;
+	min-height: 300px;
+	border-radius: 5px;
+	border: 1px solid black;
+}
+
+.itemFeautues h2 {
+	padding-top: 15px;
+	text-align: center;
+
+}
+
+.Stock_details {
+	display: none;
+}
+
+
+hr {
+	height: 0px;
+    border: none;
+    border-top: 5px solid #94b6c2;
+	margin-bottom: 20px;
+}
+
+.itemFeautues p {
+	font-size: 2em;
+}	
+	
+.itemFeautues .minorDetail {
+	font-size: 1.2em;
+}		
+#item_img { 
+	width: 250px;
+	height: 250px;
+	border: 5px solid #94b6c2;
+	border-radius: 12px;
+	margin: 15px;
+}
+
+.overlay {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(2, 76, 111, 0.78);
+	z-index: 5;
+}
+
+
+.submit_buy_modal {
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	display: none;
+	z-index: 10;
+	width: 60%;
+	background-color: white;
+	min-height: 600px;
+	border-radius: 40px;
+	padding: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

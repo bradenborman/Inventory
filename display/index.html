@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Inventory Manager</title>
+  <meta charset="utf-8">
+   <link rel="shortcut icon" type="image/x-icon" href="https://cdn3.iconfinder.com/data/icons/pictofoundry-pro-vector-set/512/BarCode-512.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" type="text/css" href="nav_style.css">
+  <link rel="stylesheet" type="text/css" href="_style.css">
+  </head>
+<body>
+<div id="user"><b>Welcome Back:</b> Braden Borman</div>
+<nav>
+ <ul>
+    <li><a href=""><i class="fas fa-home"></i> Home</a></li>
+	<li><a href=""><i class="fas fa-warehouse"></i> Inventory</a></li>
+    <li><a href=""><i class="fas fa-barcode"></i> UPC Search</a></li>
+    <li><a href=""><i class="fas fa-tools"></i> Item manager</a></li>
+  </ul> 
+</nav>
+
+
+<div class="container app">
+	<div class="card">
+	  <div class="card-header"><h4><i class="fas fa-handshake"></i> Welcome to Borman's Inventory Management Program.</h4></div>
+	  <div class="card-body">
+		<p>The first step to useing this program: <a href="#">Create a user</a> or <a href="#">Log In</a></p>
+		<p>Make sure to read the "<i>How To Use Document</i>" for a better understanding.</p>
+		<hr />
+		
+		<p><b>"ENTER</b> + <b>S"</b> to show Active User</p>
+	  </div> 
+	</div>
+	
+	
+	<br />
+	<p><b>Last Scan:</b> <div id="barcode"></div></p>
+	
+</div>
+
+
+
+<script> 
+
+var barcodes = [];
+var lastUPC_Length = 0;
+var scannedCount = 0;
+
+$(document).ready(function(){
+
+	
+var isEnterDown = false	
+var isLetter_S_Down = false	
+
+var barcodeStr = [];
+
+
+	
+		$(document).on('keydown','body',function(e) {
+						
+			if(e.keyCode==13)
+				isEnterDown = true;
+			if(e.keyCode==83)
+				isLetter_S_Down = true;	
+
+			if(isEnterDown && isLetter_S_Down)	
+				showLoggedIn()
+				
+				
+			barcodeStr.push(returnKeyCodeValue(e.keyCode))			
+			
+			setTimeout(function(){ parseBarcodes(barcodeStr.join("")) }, 100);
+			setTimeout(function(){ showLast() }, 200);
+		});
+
+		
+		
+		$(document).on('keyup','body',function(e) {
+			if(e.keyCode==13)
+				isEnterDown = false;
+			if(e.keyCode==83)
+				isLetter_S_Down = false;	
+		});
+			
+});
+
+
+function showLoggedIn() {
+	$("#user").slideDown("slow").delay(2000).slideUp("slow");
+}
+
+
+function parseBarcodes(barcodeStr) {
+	scannedCount++
+	var barcodesLocal = barcodeStr.split(" ");
+	var endResults = []
+	
+	
+	for(var x = 0; x < barcodesLocal.length; x++) {
+		if(barcodesLocal[x].length > 4)
+			endResults.unshift(barcodesLocal[x])
+	
+	}
+		
+	barcodes = endResults
+
+	if(scannedCount == 1) {
+		console.log(barcodes)
+	}
+	
+	if(scannedCount == lastUPC_Length){
+	scannedCount = 0
+	lastUPC_Length = 0
+	}
+	
+}
+
+
+function showLast() {
+	var x = barcodes.length;
+	$('#barcode').text(barcodes[0])
+}
+
+function returnKeyCodeValue(keyEntered) {
+	
+lastUPC_Length++	
+		
+	switch(keyEntered) {
+	  case 48:
+		return "0"
+	  case 49:
+		return "1"
+	  case 50:
+		return "2"
+	  case 51:
+		return "3"
+	  case 52:
+		return "4"
+	  case 53:
+		return "5"
+	  case 54:
+		return "6"
+	  case 55:
+		return "7"
+	  case 56:
+		return "8"
+	  case 57:
+		return "9"
+	  default:
+		return " "
+	}
+
+}
+
+
+
+</script>
+
+
+</body>
+</html>

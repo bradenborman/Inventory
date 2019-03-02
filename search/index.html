@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="nav_style.css">
   <link rel="stylesheet" type="text/css" href="_style.css">
   </head>
-<body>
+<body onload="loadItems()">
 <div id="user"><b>Welcome Back:</b> Braden Borman</div>
 <nav>
  <ul>
@@ -33,7 +33,7 @@
 						  <div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-barcode"></i></span>
 						  </div>
-						  <input type="text" class="form-control" placeholder="Barcode Search" id="barcodeINPUT">
+						  <input type="text" class="form-control" placeholder="Barcode Search" value="12345" id="barcodeINPUT">
 						</div>
 			</div>
 			<div class="col-lg-2 col-sm-4">
@@ -51,14 +51,13 @@
 		<img id="item_img" src="https://target.scene7.com/is/image/Target/GUEST_0f5b151c-6b57-4aec-83e2-d4f378db67ce?wid=488&hei=488&fmt=pjpeg" class="float-left">
 		
 			<div class="itemFeautues">
-					<h2>Scrubbing Bubbles</h2>
+					<h2 id="itemDescription"></h2>
 					<hr />
-					<p><b>Price: </b><span>$6.99</span></p>
-					<p class="minorDetail"><b>Prev Order Date: </b><span>Mon Feb 25 2019</span></p>
-					<p class="minorDetail"><b>Provider: </b><span>Amazon</span></p>
+					<p><b>Price: </b><span id="itemPrice"></span></p>
+					<p class="minorDetail"><b>Prev Order Date: </b><span id="itemPrevOrderDate"></span></p>
+					<p class="minorDetail"><b>Provider: </b><span id="itemProvider"></span></p>
 			</div>
-		
-		
+			
 		</div>
 	</div>
 	<div class="col-sm-4">
@@ -66,14 +65,14 @@
 			<ul class="list-group">
 			  <li class="list-group-item d-flex justify-content-between align-items-center">
 				On Hand
-				<span class="badge badge-danger">0</span>
+				<span id="itemOnHand" class="badge badge-danger"></span>
 			  </li>
 			  <li class="list-group-item d-flex justify-content-between align-items-center">
 				Capacity
-				<span class="badge badge-primary">5</span>
+				<span id="itemCap" class="badge badge-primary"></span>
 			  </li>
 			   <li class="list-group-item d-flex justify-content-between align-items-center">
-					<a onclick="showModal()" class="btn btn-secondary btn-block">Buy More</a>
+					<a id="itemLink" target="_blank" href="https://www.amazon.com/Scrubbing-Bubbles-Antibacterial-Bathroom-Cleaner/dp/B00HY51IIM" onclick="showModal()" class="btn btn-secondary btn-block">Buy More</a>
 			  </li>
 			</ul>						
 		</div>
@@ -112,5 +111,6 @@
 
 <script src="javascript/barcode.js"></script>
 <script src="javascript/search.js"></script>
+<script src="javascript/items.js"></script>
 </body>
 </html>
